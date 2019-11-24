@@ -19,7 +19,6 @@ class App extends Component {
   unsubcribeFromAuth = null;
   componentDidMount() {
     this.unsubcribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      console.log("USER ON APP", userAuth);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapShot => {
